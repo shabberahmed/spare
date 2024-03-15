@@ -1,0 +1,12 @@
+<div>
+  <h1>this is app</h1>
+  <div>
+    <p>data</p>
+    <!-- <div *ngFor="let item of vals">
+      <p>{{ item }}</p>
+    </div> -->
+  </div>
+  <input type="text" [(ngModel)]="vals">
+
+  <app-one [inputData]="vals" (myeve)="handleEvent($event)"></app-one>
+</div>

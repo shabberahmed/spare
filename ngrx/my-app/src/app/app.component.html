@@ -1,0 +1,29 @@
+<!-- home.component.html -->
+
+<div>
+  <h1>Home page</h1>
+
+  <!-- Add User Section -->
+  <div>
+    <input type="text" name="newUserName" placeholder="New User Name..." [(ngModel)]="newUser.name">
+    <input type="text" name="newUserMessage" placeholder="New User Message..." [(ngModel)]="newUser.message">
+    <button (click)="addUser()">Add User</button>
+  </div>
+
+  <!-- User List Section -->
+  <div *ngFor="let user of users">
+    <p>
+      <span>{{ user.name }}</span>
+      <span>{{ user.message }}</span>
+      <button (click)="editUserForm(user)">Edit</button>
+      <button (click)="deleteUser(user.id)">Delete</button>
+    </p>
+    <!-- Edit Form -->
+    <div *ngIf="user.editing">
+      <input type="text" name="editUserName" placeholder="Edit User Name..." [(ngModel)]="user.editName">
+      <input type="text" name="editUserMessage" placeholder="Edit User Message..." [(ngModel)]="user.editMessage">
+      <button (click)="saveEdit(user)">Save</button>
+      <button (click)="cancelEdit(user)">Cancel</button>
+    </div>
+  </div>
+</div>
